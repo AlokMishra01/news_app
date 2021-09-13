@@ -57,7 +57,7 @@ class NewsListItem extends StatelessWidget {
                 onPressed: () {
                   Navigator.restorablePushNamed(
                     context,
-                    NewsDetailView.routeName,
+                    NewsDetailView.newsDetailRoute,
                   );
                 },
                 child: const Text(

@@ -43,7 +43,10 @@ PreferredSizeWidget buildNewsListAppBar({required BuildContext context}) {
                 color: Colors.red,
               ),
               onPressed: () {
-                Navigator.restorablePushNamed(context, SettingsView.routeName);
+                Navigator.restorablePushNamed(
+                  context,
+                  SettingsView.settingPageRoute,
+                );
               },
             ),
           ],

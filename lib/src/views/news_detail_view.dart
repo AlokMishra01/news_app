@@ -5,7 +5,7 @@ import '../widget/news_detail_app_bar.dart';
 class NewsDetailView extends StatelessWidget {
   const NewsDetailView({Key? key}) : super(key: key);
 
-  static const routeName = '/newsDetail';
+  static const newsDetailRoute = '/newsDetail';
 
   @override
   Widget build(BuildContext context) {

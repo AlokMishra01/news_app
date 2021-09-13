@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           // MaterialApp to restore the navigation stack when a user leaves and
           // returns to the app after it has been killed while running in the
           // background.
-          restorationScopeId: 'app',
+          restorationScopeId: 'news_app',
 
           // Provide the generated AppLocalizations to the MaterialApp. This
           // allows descendant Widgets to display the correct translations
@@ -84,11 +84,11 @@ class MyApp extends StatelessWidget {
               settings: routeSettings,
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
-                  case SettingsView.routeName:
+                  case SettingsView.settingPageRoute:
                     return SettingsView(controller: settingsController);
-                  case NewsDetailView.routeName:
+                  case NewsDetailView.newsDetailRoute:
                     return const NewsDetailView();
-                  case NewsListView.routeName:
+                  case NewsListView.newsListRoute:
                     return const NewsListView();
                   default:
                     return const NewsListView();

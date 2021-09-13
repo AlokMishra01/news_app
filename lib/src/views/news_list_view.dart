@@ -7,7 +7,7 @@ import 'news_list_body.dart';
 class NewsListView extends StatefulWidget {
   const NewsListView({Key? key}) : super(key: key);
 
-  static const routeName = '/';
+  static const newsListRoute = '/';
 
   @override
   _NewsListViewState createState() => _NewsListViewState();
