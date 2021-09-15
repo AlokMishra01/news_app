@@ -2,5 +2,89 @@
   "appTitle": "news_app",
   "@appTitle": {
     "description": "The title of the application"
+  },
+  "all": "All",
+  "@all": {
+    "description": "This is one of news category"
+  },
+  "political": "Political",
+  "@all": {
+    "description": "This is one of news category"
+  },
+  "business": "Business",
+  "@all": {
+    "description": "This is one of news category"
+  },
+  "health": "Health",
+  "@all": {
+    "description": "This is one of news category"
+  },
+  "sports": "Sports",
+  "@all": {
+    "description": "This is one of news category"
+  },
+  "others": "Others",
+  "@all": {
+    "description": "This is one of news category"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Header of system page"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "language setting"
+  },
+  "english": "English",
+  "@english": {
+    "description": "language type En"
+  },
+  "nepali": "Nepali",
+  "@nepali": {
+    "description": "language type Ne"
+  },
+  "theme": "Theme",
+  "@theme": {
+    "description": "theme setting"
+  },
+  "system": "System",
+  "@system": {
+    "description": "theme type system"
+  },
+  "dark": "Dark",
+  "@dark": {
+    "description": "theme type dark"
+  },
+  "light": "Light",
+  "@light": {
+    "description": "theme type light"
+  },
+  "appColor": "Application Color",
+  "@appColor": {
+    "description": "application color options"
+  },
+  "read": "Read",
+  "@read": {
+    "description": "news detail button title"
+  },
+  "minutesAgo": "{minutes} Minutes Ago",
+  "@minutesAgo": {
+    "description": "news publish time duration",
+    "placeholders": {
+        "minutes": {
+            "type": "int",
+            "example": "24"
+        }
+    }
+  },
+  "newsCount": "{count, plural, =0{No News Yet} =1{Only one news} other{{count} news so far}",
+  "@newsCount": {
+    "description": "Numbers of news",
+    "placeholders": {
+        "count": {
+            "type": "int",
+            "example": "8"
+        }
+    }
   }
 }

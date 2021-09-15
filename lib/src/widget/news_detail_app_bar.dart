@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 PreferredSizeWidget buildNewsDetailAppBar({required BuildContext context}) {
@@ -48,16 +49,16 @@ PreferredSizeWidget buildNewsDetailAppBar({required BuildContext context}) {
                     ),
                     const SizedBox(height: 4.0),
                     Row(
-                      children: const [
-                        FaIcon(
+                      children: [
+                        const FaIcon(
                           FontAwesomeIcons.clock,
                           color: Colors.red,
                           size: 20.0,
                         ),
-                        SizedBox(width: 8.0),
+                        const SizedBox(width: 8.0),
                         Text(
-                          '24 Minutes Ago',
-                          style: TextStyle(
+                          AppLocalizations.of(context)!.minutesAgo(24),
+                          style: const TextStyle(
                             color: Colors.black45,
                             fontSize: 16.0,
                             fontWeight: FontWeight.w600,

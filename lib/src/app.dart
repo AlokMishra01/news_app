@@ -5,9 +5,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
 import 'views/news_detail_view.dart';
 import 'views/news_list_view.dart';
+import 'views/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -51,8 +51,10 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: const [
-            Locale('en', ''), // English, no country code
+            Locale('en', ''),
+            Locale('ne', ''),
           ],
+          locale: settingsController.locale,
 
           // Use AppLocalizations to configure the correct application title
           // depending on the user's locale.
@@ -89,7 +91,6 @@ class MyApp extends StatelessWidget {
                   case NewsDetailView.newsDetailRoute:
                     return const NewsDetailView();
                   case NewsListView.newsListRoute:
-                    return const NewsListView();
                   default:
                     return const NewsListView();
                 }

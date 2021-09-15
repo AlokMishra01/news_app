@@ -1,0 +1,21 @@
+{
+    "appTitle": "news_app",
+    "all": "सबै",
+    "political": "राजनीतिक",
+    "business": "ब्यापार",
+    "health": "स्वास्थ्य",
+    "sports": "खेलकुद",
+    "others": "अरु",
+    "settings": "सेटिंग्स",
+    "language": "भाषा",
+    "english": "अंग्रेजी",
+    "nepali": "नेपाली",
+    "theme": "थिम",
+    "system": "सिस्टम",
+    "dark": "डार्क",
+    "light": "लाईट",
+    "appColor": "अप्प्लिकसन रंग",
+    "read": "पढ्नुहोस्",
+    "minutesAgo": "{minutes} मिनेट पहिले",
+    "newsCount": "{count, plural, =0{अझै कुनै समाचार छैन} =1{एउटा मात्र समाचार} other{{count} समाचार अहिले सम्म}"
+}

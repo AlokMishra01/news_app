@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news_app/src/views/news_detail_view.dart';
 
@@ -36,16 +37,16 @@ class NewsListItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                children: const [
-                  FaIcon(
+                children: [
+                  const FaIcon(
                     FontAwesomeIcons.clock,
                     color: Colors.red,
                     size: 24.0,
                   ),
-                  SizedBox(width: 8.0),
+                  const SizedBox(width: 8.0),
                   Text(
-                    '24 Minutes Ago',
-                    style: TextStyle(
+                    AppLocalizations.of(context)!.minutesAgo(11),
+                    style: const TextStyle(
                       color: Colors.black45,
                       fontSize: 16.0,
                       fontWeight: FontWeight.w600,
@@ -60,9 +61,9 @@ class NewsListItem extends StatelessWidget {
                     NewsDetailView.newsDetailRoute,
                   );
                 },
-                child: const Text(
-                  'View',
-                  style: TextStyle(
+                child: Text(
+                  AppLocalizations.of(context)!.read,
+                  style: const TextStyle(
                     color: Colors.red,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w600,

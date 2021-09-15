@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widget/news_list_app_bar.dart';
 import 'news_list_body.dart';
@@ -22,43 +23,43 @@ class _NewsListViewState extends State<NewsListView> {
       body: DefaultTabController(
         length: 6,
         child: Column(
-          children: const [
+          children: [
             ClipRRect(
-              borderRadius: BorderRadius.vertical(
+              borderRadius: const BorderRadius.vertical(
                 bottom: Radius.circular(36.0),
               ),
               child: Material(
                 color: Colors.white,
-                borderRadius: BorderRadius.vertical(
+                borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(36.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: TabBar(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     indicatorColor: Colors.red,
                     isScrollable: true,
                     labelColor: Colors.black87,
                     unselectedLabelColor: Colors.black38,
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorWeight: 6.0,
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                     ),
                     tabs: [
-                      Tab(text: 'All'),
-                      Tab(text: 'Political'),
-                      Tab(text: 'Business'),
-                      Tab(text: 'Health'),
-                      Tab(text: 'Sports'),
-                      Tab(text: 'Others'),
+                      Tab(text: AppLocalizations.of(context)!.all),
+                      Tab(text: AppLocalizations.of(context)!.political),
+                      Tab(text: AppLocalizations.of(context)!.business),
+                      Tab(text: AppLocalizations.of(context)!.health),
+                      Tab(text: AppLocalizations.of(context)!.sports),
+                      Tab(text: AppLocalizations.of(context)!.others),
                     ],
                   ),
                 ),
               ),
             ),
-            Expanded(
+            const Expanded(
               child: TabBarView(
                 physics: BouncingScrollPhysics(),
                 children: [
