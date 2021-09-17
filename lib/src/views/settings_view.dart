@@ -249,7 +249,102 @@ class SettingsView extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(32.0),
+                      ),
+                    ),
+                    builder: (cxt) {
+                      return Container(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CheckboxListTile(
+                              title: const Text(
+                                'Red',
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              activeColor: Colors.red,
+                              value: Colors.red == controller.primaryColor,
+                              onChanged: (value) {
+                                bool b = value ?? false;
+                                if (b) {
+                                  controller.updatePrimaryColor(Colors.red);
+                                }
+                                Navigator.maybePop(context);
+                              },
+                            ),
+                            CheckboxListTile(
+                              title: const Text(
+                                'Yellow',
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              activeColor: Colors.red,
+                              value: Colors.yellow == controller.primaryColor,
+                              onChanged: (value) {
+                                bool b = value ?? false;
+                                if (b) {
+                                  controller.updatePrimaryColor(Colors.yellow);
+                                }
+                                Navigator.maybePop(context);
+                              },
+                            ),
+                            CheckboxListTile(
+                              title: const Text(
+                                'Green',
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              activeColor: Colors.red,
+                              value: Colors.green == controller.primaryColor,
+                              onChanged: (value) {
+                                bool b = value ?? false;
+                                if (b) {
+                                  controller.updatePrimaryColor(Colors.green);
+                                }
+                                Navigator.maybePop(context);
+                              },
+                            ),
+                            CheckboxListTile(
+                              title: const Text(
+                                'Purple',
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              activeColor: Colors.red,
+                              value: Colors.purple == controller.primaryColor,
+                              onChanged: (value) {
+                                bool b = value ?? false;
+                                if (b) {
+                                  controller.updatePrimaryColor(Colors.purple);
+                                }
+                                Navigator.maybePop(context);
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
                 icon: const FaIcon(
                   FontAwesomeIcons.arrowRight,
                   color: Colors.red,

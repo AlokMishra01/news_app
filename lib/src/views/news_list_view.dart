@@ -18,7 +18,7 @@ class _NewsListViewState extends State<NewsListView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red.shade50,
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: buildNewsListAppBar(context: context),
       body: DefaultTabController(
         length: 6,
@@ -29,7 +29,7 @@ class _NewsListViewState extends State<NewsListView> {
                 bottom: Radius.circular(36.0),
               ),
               child: Material(
-                color: Colors.white,
+                color: Theme.of(context).cardColor,
                 borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(36.0),
                 ),
@@ -37,10 +37,10 @@ class _NewsListViewState extends State<NewsListView> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: TabBar(
                     physics: const BouncingScrollPhysics(),
-                    indicatorColor: Colors.red,
+                    indicatorColor: Theme.of(context).primaryColor,
                     isScrollable: true,
-                    labelColor: Colors.black87,
-                    unselectedLabelColor: Colors.black38,
+                    labelColor: Theme.of(context).focusColor,
+                    unselectedLabelColor: Theme.of(context).disabledColor,
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorWeight: 6.0,
                     labelStyle: const TextStyle(

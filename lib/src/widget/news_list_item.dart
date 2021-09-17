@@ -11,7 +11,7 @@ class NewsListItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(24.0),
       ),
       child: Column(
@@ -24,13 +24,10 @@ class NewsListItem extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8.0),
-          const Text(
+          Text(
             '\'Relief\': Djokovic\'s Bid for Year Slam Ends Against Medvedev',
             textAlign: TextAlign.justify,
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.w600,
-            ),
+            style: Theme.of(context).textTheme.subtitle1,
           ),
           const SizedBox(height: 4.0),
           Row(
@@ -38,19 +35,15 @@ class NewsListItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const FaIcon(
+                  FaIcon(
                     FontAwesomeIcons.clock,
-                    color: Colors.red,
+                    color: Theme.of(context).primaryColor,
                     size: 24.0,
                   ),
                   const SizedBox(width: 8.0),
                   Text(
                     AppLocalizations.of(context)!.minutesAgo(11),
-                    style: const TextStyle(
-                      color: Colors.black45,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ],
               ),
@@ -63,8 +56,8 @@ class NewsListItem extends StatelessWidget {
                 },
                 child: Text(
                   AppLocalizations.of(context)!.read,
-                  style: const TextStyle(
-                    color: Colors.red,
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w600,
                   ),

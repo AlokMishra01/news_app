@@ -17,10 +17,12 @@ class SettingsController with ChangeNotifier {
   // Make ThemeMode a private variable so it is not updated directly without
   // also persisting the changes with the SettingsService.
   late ThemeMode _themeMode;
+  Color _primaryColor = Colors.red;
   late Locale _locale;
 
   // Allow Widgets to read the user's preferred ThemeMode.
   ThemeMode get themeMode => _themeMode;
+  Color get primaryColor => _primaryColor;
   Locale get locale => _locale;
 
   /// Load the user's settings from the SettingsService. It may load from a
@@ -57,6 +59,15 @@ class SettingsController with ChangeNotifier {
       return;
     } else {
       _locale = locale;
+      notifyListeners();
+    }
+  }
+
+  updatePrimaryColor(Color? color) {
+    if (color == null) {
+      return;
+    } else {
+      _primaryColor = color;
       notifyListeners();
     }
   }

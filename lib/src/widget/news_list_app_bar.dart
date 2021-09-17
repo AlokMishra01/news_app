@@ -7,11 +7,8 @@ PreferredSizeWidget buildNewsListAppBar({required BuildContext context}) {
   return PreferredSize(
     child: Container(
       height: 60.0 + MediaQuery.of(context).padding.top,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        // borderRadius: BorderRadius.vertical(
-        //   bottom: Radius.circular(36.0),
-        // ),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
       ),
       child: SafeArea(
         child: Row(
@@ -22,25 +19,21 @@ PreferredSizeWidget buildNewsListAppBar({required BuildContext context}) {
                 Container(
                   width: 6.0,
                   height: 28.0,
-                  color: Colors.red,
+                  color: Theme.of(context).primaryColor,
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'News Today',
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontSize: 36.0,
-                      fontWeight: FontWeight.w900,
-                    ),
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
               ],
             ),
             IconButton(
-              icon: const FaIcon(
+              icon: FaIcon(
                 FontAwesomeIcons.slidersH,
-                color: Colors.red,
+                color: Theme.of(context).primaryColor,
               ),
               onPressed: () {
                 Navigator.restorablePushNamed(

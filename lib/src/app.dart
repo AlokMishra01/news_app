@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'settings/settings_controller.dart';
 import 'views/news_detail_view.dart';
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
           // MaterialApp to restore the navigation stack when a user leaves and
           // returns to the app after it has been killed while running in the
           // background.
-          restorationScopeId: 'news_app',
+          restorationScopeId: 'app',
 
           // Provide the generated AppLocalizations to the MaterialApp. This
           // allows descendant Widgets to display the correct translations
@@ -68,14 +67,62 @@ class MyApp extends StatelessWidget {
           // preferred ThemeMode (light, dark, or system default) from the
           // SettingsController to display the correct theme.
           theme: ThemeData(
-            textTheme: GoogleFonts.varelaRoundTextTheme(
-              Theme.of(context).textTheme,
-            ),
+            textTheme: const TextTheme(
+                headline1: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 36.0,
+                  fontWeight: FontWeight.w900,
+                ),
+                headline2: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                subtitle1: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w600,
+                ),
+                bodyText2: TextStyle(
+                  color: Colors.black45,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w600,
+                )),
+            primaryColor: settingsController.primaryColor,
+            cardColor: Colors.white,
+            disabledColor: Colors.black38,
+            focusColor: Colors.black87,
+            backgroundColor: Colors.red.shade50,
           ),
-          darkTheme: ThemeData.dark().copyWith(
-            textTheme: GoogleFonts.varelaRoundTextTheme(
-              Theme.of(context).textTheme,
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            textTheme: const TextTheme(
+              headline1: TextStyle(
+                color: Colors.white,
+                fontSize: 36.0,
+                fontWeight: FontWeight.w900,
+              ),
+              headline2: TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
+              subtitle1: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w600,
+              ),
+              bodyText2: TextStyle(
+                color: Colors.white54,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+              ),
             ),
+            primaryColor: settingsController.primaryColor,
+            cardColor: Colors.black87,
+            disabledColor: Colors.white38,
+            focusColor: Colors.white,
+            backgroundColor: Colors.white24,
           ),
           themeMode: settingsController.themeMode,
 
