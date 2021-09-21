@@ -8,23 +8,23 @@
     "description": "This is one of news category"
   },
   "political": "Political",
-  "@all": {
+  "@political": {
     "description": "This is one of news category"
   },
   "business": "Business",
-  "@all": {
+  "@business": {
     "description": "This is one of news category"
   },
   "health": "Health",
-  "@all": {
+  "@health": {
     "description": "This is one of news category"
   },
   "sports": "Sports",
-  "@all": {
+  "@sports": {
     "description": "This is one of news category"
   },
   "others": "Others",
-  "@all": {
+  "@others": {
     "description": "This is one of news category"
   },
   "settings": "Settings",

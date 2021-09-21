@@ -42,7 +42,7 @@ class NewsListItem extends StatelessWidget {
                   ),
                   const SizedBox(width: 8.0),
                   Text(
-                    AppLocalizations.of(context)!.minutesAgo(11),
+                    AppLocalizations.of(context)!.minutesAgo(26),
                     style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ],

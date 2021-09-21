@@ -68,26 +68,27 @@ class MyApp extends StatelessWidget {
           // SettingsController to display the correct theme.
           theme: ThemeData(
             textTheme: const TextTheme(
-                headline1: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 36.0,
-                  fontWeight: FontWeight.w900,
-                ),
-                headline2: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-                subtitle1: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.w600,
-                ),
-                bodyText2: TextStyle(
-                  color: Colors.black45,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w600,
-                )),
+              headline1: TextStyle(
+                color: Colors.black87,
+                fontSize: 36.0,
+                fontWeight: FontWeight.w900,
+              ),
+              headline2: TextStyle(
+                color: Colors.black87,
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
+              subtitle1: TextStyle(
+                color: Colors.black87,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w600,
+              ),
+              bodyText2: TextStyle(
+                color: Colors.black45,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
             primaryColor: settingsController.primaryColor,
             cardColor: Colors.white,
             disabledColor: Colors.black38,

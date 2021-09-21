@@ -17,7 +17,7 @@ class SettingsController with ChangeNotifier {
   // Make ThemeMode a private variable so it is not updated directly without
   // also persisting the changes with the SettingsService.
   late ThemeMode _themeMode;
-  Color _primaryColor = Colors.red;
+  late Color _primaryColor;
   late Locale _locale;
 
   // Allow Widgets to read the user's preferred ThemeMode.
@@ -31,7 +31,7 @@ class SettingsController with ChangeNotifier {
   Future<void> loadSettings() async {
     _themeMode = await _settingsService.themeMode();
     _locale = await _settingsService.appLocale();
-
+    _primaryColor = Colors.red;
     // Important! Inform listeners a change has occurred.
     notifyListeners();
   }
@@ -54,12 +54,13 @@ class SettingsController with ChangeNotifier {
     await _settingsService.updateThemeMode(newThemeMode);
   }
 
-  updateLocale(Locale? locale) {
+  updateLocale(Locale? locale) async {
     if (locale == null) {
       return;
     } else {
       _locale = locale;
       notifyListeners();
+      await _settingsService.updateAppLocale(locale);
     }
   }
 
