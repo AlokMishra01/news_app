@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:news_app/api/get_news.dart';
+import 'package:news_app/models/news_response_model.dart';
 
 import '../widget/news_list_app_bar.dart';
 import 'news_list_body.dart';
@@ -59,13 +61,15 @@ class _NewsListViewState extends State<NewsListView> {
                 ),
               ),
             ),
-            const Expanded(
+            Expanded(
               child: TabBarView(
                 physics: BouncingScrollPhysics(),
                 children: [
-                  NewsListBody(
-                    noOfItems: 37,
-                  ),
+                  if (_loading) Center(child: CircularProgressIndicator()),
+                  if (!_loading)
+                    NewsListBody(
+                      news: newsData!.newsList,
+                    ),
                   NewsListBody(
                     noOfItems: 12,
                   ),
@@ -88,5 +92,25 @@ class _NewsListViewState extends State<NewsListView> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadNews();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  NewsResponseModel? newsData;
+  bool _loading = true;
+
+  _loadNews() async {
+    newsData = await GetNewsService().getNews();
+    _loading = false;
+    setState(() {});
   }
 }

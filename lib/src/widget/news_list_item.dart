@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news_app/models/news_response_model.dart';
 import 'package:news_app/src/views/news_detail_view.dart';
 
 class NewsListItem extends StatelessWidget {
-  const NewsListItem({Key? key}) : super(key: key);
+  final NewsModel news;
+
+  const NewsListItem({
+    Key? key,
+    required this.news,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +25,13 @@ class NewsListItem extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
             child: Image.network(
-              'https://www.usnews.com/dims4/USNEWS/2e826ce/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fbe%2Fc175c943474e78ec8a41bc0ec3e315%2Fmedia%3Ad97a6dbe3af6439b94d8dbac70e0a0f0US_Open_Tennis_71457.jpg',
+              news.image ?? '',
               fit: BoxFit.contain,
             ),
           ),
           const SizedBox(height: 8.0),
           Text(
-            '\'Relief\': Djokovic\'s Bid for Year Slam Ends Against Medvedev',
+            news.title ?? '',
             textAlign: TextAlign.justify,
             style: Theme.of(context).textTheme.subtitle1,
           ),
