@@ -65,25 +65,39 @@ class _NewsListViewState extends State<NewsListView> {
               child: TabBarView(
                 physics: BouncingScrollPhysics(),
                 children: [
-                  if (_loading) Center(child: CircularProgressIndicator()),
+                  if (_loading)
+                    Center(child: const CircularProgressIndicator()),
                   if (!_loading)
                     NewsListBody(
-                      news: newsData!.newsList,
-                    ),
-                  NewsListBody(
-                    noOfItems: 12,
-                  ),
+                        news: newsData!.newsList,
+                        refresh: () async {
+                          _page = 1;
+                          await _loadNews();
+                        }),
+                  if (_politicalLoading)
+                    const Center(child: CircularProgressIndicator()),
+                  if (!_politicalLoading)
+                    NewsListBody(
+                        news: politicalNewsData!.newsList,
+                        refresh: () async {
+                          _politicalPage = 1;
+                          await _politicalLoadNews();
+                        }),
                   NewsListBody(
                     noOfItems: 6,
+                    refresh: () {},
                   ),
                   NewsListBody(
                     noOfItems: 7,
+                    refresh: () {},
                   ),
                   NewsListBody(
                     noOfItems: 9,
+                    refresh: () {},
                   ),
                   NewsListBody(
                     noOfItems: 3,
+                    refresh: () {},
                   ),
                 ],
               ),
@@ -98,6 +112,7 @@ class _NewsListViewState extends State<NewsListView> {
   void initState() {
     super.initState();
     _loadNews();
+    _politicalLoadNews();
   }
 
   @override
@@ -107,10 +122,44 @@ class _NewsListViewState extends State<NewsListView> {
 
   NewsResponseModel? newsData;
   bool _loading = true;
+  int _page = 1;
+  NewsResponseModel? politicalNewsData;
+  bool _politicalLoading = true;
+  int _politicalPage = 1;
+  NewsResponseModel? businessNewsData;
+  bool _businessLoading = true;
+  NewsResponseModel? healthNewsData;
+  bool _healthLoading = true;
+  NewsResponseModel? sportsNewsData;
+  bool _helthLoading = true;
+  NewsResponseModel? othersNewsData;
+  bool _othersLoading = true;
 
   _loadNews() async {
-    newsData = await GetNewsService().getNews();
+    var news = await GetNewsService().getNews(
+      page: _page,
+    );
+    if (_page == 1) {
+      newsData = news;
+    } else {
+      if (newsData == null) newsData = NewsResponseModel(newsList: []);
+      newsData!.newsList.addAll(news!.newsList);
+    }
     _loading = false;
+    setState(() {});
+  }
+
+  _politicalLoadNews() async {
+    var news = await GetNewsService().getNews(
+      query: 'political',
+      page: _politicalPage,
+    );
+    if (_page == 1) {
+      politicalNewsData = news;
+    } else {
+      politicalNewsData!.newsList.addAll(news!.newsList);
+    }
+    _politicalLoading = false;
     setState(() {});
   }
 }

@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news_app/models/news_response_model.dart';
-import 'package:news_app/src/views/news_detail_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsListItem extends StatelessWidget {
   final NewsModel news;
@@ -24,10 +25,26 @@ class NewsListItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
-            child: Image.network(
-              news.image ?? '',
+            child: CachedNetworkImage(
+              imageUrl: news.image ?? '',
               fit: BoxFit.contain,
+              placeholder: (_, __) {
+                return Image.asset(
+                  'assets/images/img.png',
+                  fit: BoxFit.contain,
+                );
+              },
+              errorWidget: (_, __, ___) {
+                return Image.asset(
+                  'assets/images/img.png',
+                  fit: BoxFit.contain,
+                );
+              },
             ),
+            // child: Image.network(
+            //   news.image ?? '',
+            //   fit: BoxFit.contain,
+            // ),
           ),
           const SizedBox(height: 8.0),
           Text(
@@ -48,17 +65,20 @@ class NewsListItem extends StatelessWidget {
                   ),
                   const SizedBox(width: 8.0),
                   Text(
-                    AppLocalizations.of(context)!.minutesAgo(26),
+                    AppLocalizations.of(context)!.minutesAgo(
+                      DateTime.now()
+                          .difference(
+                            DateTime.parse(news.publishDate ?? ''),
+                          )
+                          .inMinutes,
+                    ),
                     style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ],
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.restorablePushNamed(
-                    context,
-                    NewsDetailView.newsDetailRoute,
-                  );
+                  launch(news.url ?? '');
                 },
                 child: Text(
                   AppLocalizations.of(context)!.read,

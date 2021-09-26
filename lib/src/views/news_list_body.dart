@@ -6,34 +6,41 @@ import '../widget/news_list_item.dart';
 class NewsListBody extends StatelessWidget {
   final List<NewsModel> news;
   final int noOfItems;
+  final Function refresh;
 
   const NewsListBody({
     Key? key,
     this.noOfItems = 0,
     this.news = const [],
+    required this.refresh,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(32.0),
-      child: ListView.separated(
-        itemBuilder: (cxt, index) {
-          return NewsListItem(
-            news: news[index],
-          );
+      child: RefreshIndicator(
+        onRefresh: () async {
+          await refresh();
         },
-        separatorBuilder: (cxt, index) {
-          return const SizedBox(height: 8.0);
-        },
-        itemCount: news.length,
-        padding: const EdgeInsets.only(
-          top: 8.0,
-          bottom: 80.0,
-          left: 8.0,
-          right: 8.0,
+        child: ListView.separated(
+          itemBuilder: (cxt, index) {
+            return NewsListItem(
+              news: news[index],
+            );
+          },
+          separatorBuilder: (cxt, index) {
+            return const SizedBox(height: 8.0);
+          },
+          itemCount: news.length,
+          padding: const EdgeInsets.only(
+            top: 8.0,
+            bottom: 80.0,
+            left: 8.0,
+            right: 8.0,
+          ),
+          physics: const BouncingScrollPhysics(),
         ),
-        physics: const BouncingScrollPhysics(),
       ),
     );
   }

@@ -6,10 +6,19 @@ import 'package:news_app/models/news_response_model.dart';
 class GetNewsService {
   final Dio _dio = Dio();
 
-  Future<NewsResponseModel?> getNews() async {
+  Future<NewsResponseModel?> getNews({
+    String query = 'all',
+    required int page,
+  }) async {
     try {
+      var date = DateTime.now();
       Response response = await _dio.get(
-        'https://newsapi.org/v2/everything?q=apple&from=2021-08-24&sortBy=publishedAt&apiKey=daafa2c051444d39a750e0b1cbc408d1&page=1',
+        'https://newsapi.org/v2/everything?'
+        'q=$query&'
+        'from=${date.year}-${date.month}-${date.day}&'
+        'sortBy=publishedAt&'
+        'apiKey=daafa2c051444d39a750e0b1cbc408d1&'
+        'page=$page',
       );
       if (response.statusCode! < 300 && response.statusCode! >= 200) {
         NewsResponseModel n = NewsResponseModel.fromJson(response.data);
