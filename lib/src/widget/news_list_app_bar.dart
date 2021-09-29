@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news_app/src/views/news_search_view.dart';
 
 import '../views/settings_view.dart';
 
@@ -30,17 +31,34 @@ PreferredSizeWidget buildNewsListAppBar({required BuildContext context}) {
                 ),
               ],
             ),
-            IconButton(
-              icon: FaIcon(
-                FontAwesomeIcons.slidersH,
-                color: Theme.of(context).primaryColor,
-              ),
-              onPressed: () {
-                Navigator.restorablePushNamed(
-                  context,
-                  SettingsView.settingPageRoute,
-                );
-              },
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: FaIcon(
+                    FontAwesomeIcons.search,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  onPressed: () {
+                    Navigator.restorablePushNamed(
+                      context,
+                      NewsSearchView.newsSearchViewRoute,
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: FaIcon(
+                    FontAwesomeIcons.slidersH,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  onPressed: () {
+                    Navigator.restorablePushNamed(
+                      context,
+                      SettingsView.settingPageRoute,
+                    );
+                  },
+                ),
+              ],
             ),
           ],
         ),

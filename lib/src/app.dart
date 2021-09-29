@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'settings/settings_controller.dart';
 import 'views/news_detail_view.dart';
 import 'views/news_list_view.dart';
+import 'views/news_search_view.dart';
 import 'views/settings_view.dart';
 
 /// The Widget that configures your application.
@@ -138,6 +139,8 @@ class MyApp extends StatelessWidget {
                     return SettingsView(controller: settingsController);
                   case NewsDetailView.newsDetailRoute:
                     return const NewsDetailView();
+                  case NewsSearchView.newsSearchViewRoute:
+                    return const NewsSearchView();
                   case NewsListView.newsListRoute:
                   default:
                     return const NewsListView();
